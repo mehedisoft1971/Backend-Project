@@ -1,25 +1,23 @@
-import express from "express";
+const express = require('express');
 const router = express.Router();
-import * as taskController from "../app/controllers/taskController.js";
+const blogController = require('../controllers/blogController');
 
+// Route to create a blog
+router.post("/create-blog", blogController.createBlog);
 
-// Request params & query string
-router.post("/demo1/:name/:age/:city",taskController.demo1);
+module.exports = router;
 
-// Request Body JSON
-router.post("/demo2",taskController.demo2)
+//Route Read Blog 
+router.get("/read-blog", blogController.readBlog);
 
+module.exports = router;
 
-// Request Form Data
-router.post("/demo3",taskController.demo3)
+// Route to update a blog
+router.put("/update-blog", blogController.updateBlog);
 
+module.exports = router;
 
-// Upload A File
-router.post("/demo4",taskController.demo4)
+// Route to delete blog
+router.get("/delete-blog", blogController.deleteBlog);
 
-
-
-// Request Header
-router.post("/demo5",taskController.demo5)
-
-export default router;
+module.exports = router;
